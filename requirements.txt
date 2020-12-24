@@ -1,0 +1,7 @@
+requests
+fastapi
+uvicorn
+sqlalchemy
+jinja2
+aiofiles
+databases[mysql]

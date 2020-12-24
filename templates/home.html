@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Dashboard refresh {{time}}</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col"><a href="/id">ID</a></th>
+        <th scope="col"><a href="/name">Meno</a></th>
+        <th scope="col"><a href="/adresa">Adresa</a></th>
+        <th scope="col"><a href="/naposledy">Kedy</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for zdroj in zdroje %}
+      <tr>
+        <td><a href="device/{{zdroj['id']}}">{{zdroj['id']}}</a></td>
+        <td>{{zdroj['name']}}</td>
+        <td>{{zdroj['adresa']}}</td>
+        <td>{{zdroj['naposledy']}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
