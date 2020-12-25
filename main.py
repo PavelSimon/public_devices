@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 import requests
 import time
-#from dateutil.parser import parse
+from dateutil.parser import parse
 
 app = FastAPI()
 
