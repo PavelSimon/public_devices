@@ -13,6 +13,8 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 templates = Jinja2Templates(directory="./templates")
 
+# Routes
+
 
 @app.get("/")
 async def root(request: Request):
@@ -38,8 +40,8 @@ async def sorted_root(request: Request, triedenie: str):
     zdroje = response.json()
     # zdrojes = sorted(zdroje)
     # print(zdrojes)
-    print("zdroje[0]['id']:", zdroje[0]['id'],
-          "je typu:", type(zdroje[0]['id']))
+    # print("zdroje[0]['id']:", zdroje[0]['id'],
+    #       "je typu:", type(zdroje[0]['id']))
     zdroje.sort(key=myFunc)
     localtime = time.asctime(time.localtime(time.time()))
     return templates.TemplateResponse("home.html", {"request": request, "triedenie": triedenie, "zdroje": zdroje, "time": localtime})
@@ -64,6 +66,7 @@ async def old(request: Request):
     """
     return templates.TemplateResponse("old.html", {"request": request})
 
+# code for running easily
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0",
                 port=int(PORT), reload=True, debug=True)
