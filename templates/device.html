@@ -3,5 +3,61 @@
 {% block content %}
 <h2>Detail of Device refresh {{time}}</h2>
 <h3>Item ID: {{ id }}</h3>
-<p>{{zdroje}}</p>
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Kľúč</th>
+        <th scope="col">Hodnota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td>{{zdroj['id']}}</td>
+      </tr>
+      <tr>
+        <td>SSID</td>
+        <td>{{zdroj['SSID']}}</td>
+      </tr>
+      <tr>
+        <td><strong>Názov</strong></td>
+        <td><strong>{{zdroj['station']}}</strong></td>
+      </tr>
+      <tr>
+        <td>IP adresa</td>
+        <td>{{zdroj['adresa']}}</td>
+      </tr>
+      <tr>
+        <td><i>Od</i></td>
+        <td><i>{{zdroj['first seen']}}</i></td>
+      </tr>
+      <tr>
+        <td>Naposledy</td>
+        <td>{{zdroj['last seen']}}</td>
+      </tr>
+      <tr>
+        <td>Teplota</td>
+        <td>{{zdroj['teplota']}}°C</td>
+      </tr>
+      <tr>
+        <td>Tlak</td>
+        <td>{{zdroj['tlak']}} hPa</td>
+      </tr>
+      <tr>
+        <td>Vlhkosť</td>
+        <td>{{zdroj['vlhkost']}} %</td>
+      </tr>
+      <tr>
+        <td>Svetlo</td>
+        <td>{{zdroj['svetlo']}}</td>
+      </tr>
+      <tr>
+        <td>Poznámka</td>
+        <td>{{zdroj['text']}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 {% endblock %}

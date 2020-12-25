@@ -52,11 +52,12 @@ async def read_item(request: Request, id: str):
     """
     show information about one particulal device (sensor)
     """
-    url = 'http://dealan.sk/device.php'
+    url = 'http://dealan.sk/device.php?id='+id
+    print(url)
     response = requests.get(url)
-    zdroje = response.json()
+    zdroj = response.json()  # '{"id": 1}'  #
     localtime = time.asctime(time.localtime(time.time()))
-    return templates.TemplateResponse("device.html", {"request": request, "id": id, "zdroje": zdroje, "time": localtime})
+    return templates.TemplateResponse("device.html", {"request": request, "id": id, "zdroj": zdroj, "time": localtime})
 
 
 @app.get("/old")
