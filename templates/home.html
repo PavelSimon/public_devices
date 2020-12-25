@@ -14,8 +14,12 @@
     </thead>
     <tbody>
       {% for zdroj in zdroje %}
-      <tr>
-        <td><a href="device/{{zdroj['id']}}">{{zdroj['id']}}</a></td>
+      <tr {% if zdroj['time_diff']> 86400 %}
+        class="table-danger"
+        {% elif zdroj['time_diff']> 600 %}
+        class="table-warning"
+        {% endif %}>
+        <td><a href="/device/{{zdroj['id']}}">{{zdroj['id']}}</a></td>
         <td>{{zdroj['name']}}</td>
         <td>{{zdroj['adresa']}}</td>
         <td>{{zdroj['naposledy']}}</td>
