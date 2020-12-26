@@ -2,7 +2,9 @@
 Pokus o Python FastAPI web
 
 Instal dependencies first:
+
 pip install -r requirements.txt
 
-Rn:
+Run:
+
 python main.py
